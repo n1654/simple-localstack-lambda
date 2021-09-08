@@ -23,7 +23,7 @@ aws lambda create-function \
 --function-name my-function \
 --zip-file fileb://./my-math-function/my-deployment-package.zip \
 --handler lambda_function.lambda_handler \
---runtime nodejs12.x \
+--runtime python3.8 \
 --role arn:aws:iam::000000000000:role/lambda-ex \
 --endpoint-url=http://127.0.0.1:4566
 
@@ -31,7 +31,8 @@ aws lambda create-function \
 # use the --log-type option. The response includes a LogResult field
 # that contains up to 4 KB of base64-encoded logs from the invocation.
 aws lambda invoke \
---function-name my-function square 2 \
+--function-name my-function out \
+--payload '{ "action": "square", "number": 2 }' \
 --log-type Tail \
 --endpoint-url=http://127.0.0.1:4566
 
