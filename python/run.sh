@@ -60,14 +60,3 @@ aws lambda get-function \
 aws lambda delete-function \
 --function-name my-function \
 --endpoint-url=http://127.0.0.1:4566
-
-
-
-
-
-
-
-aws lambda update-function-code \
---function-name MyLambdaFunction \
---zip-file fileb://./my-math-function/my-deployment-package.zip \
---endpoint-url=http://127.0.0.1:4566
