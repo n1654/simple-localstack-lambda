@@ -1,5 +1,21 @@
 # HOW TO RUN AND USE LOCALSTACK FOR LAMBDA DEPLOYMENT
 
+## Environment
+
+| HyperVisor | VirtualBox 6.1 |
+| ------ | ------ |
+
+| Virtual Machine |  |
+| ------ | ------ |
+| vCPU | 2 |
+| RAM | 4096 MB |
+| Disk | 30 GB |
+| OS | Ubuntu 20.04.1 LTS |
+| Docker | Community 20.10.2 |
+| Docker-compose | 1.27.4 |
+| Python | 3.8.10 |
+| Localstack | 0.12.17.5 |
+| Aws-cli | 1.20.37 |
 
 ## 1. Clone localstack and do read documentation carefully:
 From [here](https://github.com/localstack/localstack)
