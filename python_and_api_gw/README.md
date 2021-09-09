@@ -1,4 +1,21 @@
+# How to run and use localstack for lambda + API gateway deployment
 
+## Environment
+
+| HyperVisor | VirtualBox 6.1 |
+| ------ | ------ |
+
+| Virtual Machine |  |
+| ------ | ------ |
+| vCPU | 2 |
+| RAM | 4096 MB |
+| Disk | 30 GB |
+| OS | Ubuntu 20.04.1 LTS |
+| Docker | Community 20.10.2 |
+| Docker-compose | 1.27.4 |
+| Python | 3.8.10 |
+| Localstack | 0.12.17.5 |
+| Aws-cli | 1.20.37 |
 
 [video1](https://www.youtube.com/watch?v=uFsaiEhr1zs&t)
 [video2](https://www.youtube.com/watch?v=uICnMaOP5yE)
