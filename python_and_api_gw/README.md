@@ -24,6 +24,16 @@
 
 [docs](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-lambda-custom-integrations.html)
 
+## Diagram
+
+    HTTP GET       ┌─────────────────┐  HTTP GET     ┌───────────────────┐
+    ───────────────►                 ├───────────────►                   │
+                   │   API Gateway   │               │  Lambda function  │
+    ◄──────────────┤                 ◄───────────────┤                   │
+    HTTP RESPONSE  └─────────────────┘ HTTP RESPONSE └───────────────────┘
+
+
+
 ## 0. Create Lambda
 see [python lambda](../main/python/README.md)
 
