@@ -17,52 +17,61 @@
 | Localstack | 0.12.17.5 |
 | Aws-cli | 1.20.37 |
 
+## References
 [video1](https://www.youtube.com/watch?v=uFsaiEhr1zs&t)
+
 [video2](https://www.youtube.com/watch?v=uICnMaOP5yE)
+
 [docs](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-lambda-custom-integrations.html)
+
+## 0. Create Lambda
+see [python lambda](../main/python/README.md)
+
+## 1. Create rest api
 ```sh
 $ aws apigateway create-rest-api \
 --name TransactionApis \
 --endpoint-url=http://127.0.0.1:4566
 ```
 
-### get id
+## 2. Get rest api id
 ```sh
 $ aws apigateway get-rest-apis \
 --endpoint-url=http://127.0.0.1:4566
 ```
 
-### get parent id
+## 3. Get parent id
 ```sh
 $ aws apigateway get-resources \
---rest-api-id "829370yfgo" \
+--rest-api-id "ylrqlrpqkj" \
 --endpoint-url=http://127.0.0.1:4566
 ```
-### resource
+
+## 4. Create resource
 ```sh
 $ aws apigateway create-resource \
---rest-api-id "9snonnfj1r" \
---parent-id "8jx1jyffs2" \
+--rest-api-id "ylrqlrpqkj" \
+--parent-id "q2ybhxdcnz" \
 --path-part 'transactions' \
 --endpoint-url=http://127.0.0.1:4566
 ```
 
-### method
+## 5. Specify method
 ```sh
 $ aws apigateway put-method \
---rest-api-id "9snonnfj1r" \
---resource-id "xuidwo0ub1" \
+--rest-api-id "ylrqlrpqkj" \
+--resource-id "avpnmpbhjh" \
 --http-method "GET" \
 --authorization-type "NONE" \
 --endpoint-url=http://127.0.0.1:4566
 ```
 
-### integration
+## 6. Create integration
 [put-integration](https://docs.aws.amazon.com/cli/latest/reference/apigateway/put-integration.html)
 ```sh
 $ aws apigateway put-integration \
---rest-api-id "9snonnfj1r" \
---resource-id "xuidwo0ub1" \
+--rest-api-id "ylrqlrpqkj" \
+--resource-id "avpnmpbhjh" \
 --http-method "GET" \
 --type AWS_PROXY \
 --integration-http-method POST \
@@ -71,14 +80,21 @@ $ aws apigateway put-integration \
 ```
 
 
-### deployment
+## 7. Create deployment
 ```sh
 $ aws apigateway create-deployment \
---rest-api-id "9snonnfj1r" \
+--rest-api-id "ylrqlrpqkj" \
 --stage-name "dev" \
 --endpoint-url=http://127.0.0.1:4566
 ```
 
 
-### check url
-http://localhost:4566/restapis/9snonnfj1r/dev/_user_request_/transactions?transactionId=5&type=PURCHASE&amount=500
+## 8. Check url
+
+`http://localhost:4566/restapis/<rest-api-id>/<stage-name>/_user_request_/<resource path-part>?<variable_01>=<value>&<variable_02>=<value>...`
+note: variables passed into python function
+
+example
+```
+http://<localstack ip>:4566/restapis/<rest-api-id>/<stage-name>/_user_request_/transactions?transactionId=5&type=PURCHASE&amount=500
+```
