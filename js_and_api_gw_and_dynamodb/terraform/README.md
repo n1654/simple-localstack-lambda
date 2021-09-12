@@ -25,7 +25,7 @@ Check output from `apply` command and find `rest-api-id`:
 
 `aws_api_gateway_rest_api.http-crud-tutorial-api: Creation complete after 0s [id=5e4blfa12u]`
 
-replace <rest-api-id> and verify:
+replace `<rest-api-id>` and verify:
 
 ```sh
 $ curl -v -X "PUT" -H "Content-Type: application/json" \
