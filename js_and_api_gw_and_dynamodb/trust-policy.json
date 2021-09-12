@@ -1,0 +1,25 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": {
+        "Service": "lambda.amazonaws.com"
+      },
+      "Action": "sts:AssumeRole"
+    },
+    {
+    			"Effect": "Allow",
+    			"Action": [
+    				"dynamodb:BatchGetItem",
+    				"dynamodb:GetItem",
+    				"dynamodb:Query",
+    				"dynamodb:Scan",
+    				"dynamodb:BatchWriteItem",
+    				"dynamodb:PutItem",
+    				"dynamodb:UpdateItem"
+    			],
+    			"Resource": "arn:aws:dynamodb:ap-southeast-2:000000000000:table/http-crud-tutorial-items"
+    		}
+  ]
+}
