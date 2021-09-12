@@ -40,6 +40,7 @@ AWS [docs](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api
  `      - HOSTNAME_EXTERNAL=localstack`
  - nodejs function points to this hostname
  `const dynamo = new AWS.DynamoDB.DocumentClient({endpoint: 'http://${process.env.LOCALSTACK_HOSTNAME}:4566'});`
+ - use [main.tf](../js_and_api_gw_and_dynamodb/terraform/main.tf) to deploy resources with terraform
  - use [run.sh](../js_and_api_gw_and_dynamodb/run.sh) to execute aws cli commands automatically
 
 
