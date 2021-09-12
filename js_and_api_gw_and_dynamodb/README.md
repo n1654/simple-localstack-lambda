@@ -19,7 +19,7 @@
 
 ## References
 
-[docs](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-dynamo-db.html)
+AWS [docs](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-dynamo-db.html)
 
 ## Diagram
 
@@ -40,7 +40,7 @@
  `      - HOSTNAME_EXTERNAL=localstack`
  - nodejs function points to this hostname
  `const dynamo = new AWS.DynamoDB.DocumentClient({endpoint: 'http://${process.env.LOCALSTACK_HOSTNAME}:4566'});`
- - use [run.sh](../main/js_and_api_gw_and_dynamodb/run.sh) to execute aws cli commands automatically
+ - use [run.sh](../js_and_api_gw_and_dynamodb/run.sh) to execute aws cli commands automatically
 
 
 ## 1. Create a DynamoDB table
